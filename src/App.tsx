@@ -10,6 +10,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import License from "./pages/License.tsx";
 import Copyright from "./pages/Copyright.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import CustomCursor from "@/components/CustomCursor";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const AnimatedRoutes = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <CustomCursor />
       <Toaster />
       <Sonner />
       <BrowserRouter>
