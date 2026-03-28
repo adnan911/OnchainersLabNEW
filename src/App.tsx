@@ -6,6 +6,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import PageTransition from "@/components/PageTransition";
 import Index from "./pages/Index.tsx";
+import ColorMazePage from "./pages/ColorMazePage.tsx";
+import CryptoSpellPage from "./pages/CryptoSpellPage.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import License from "./pages/License.tsx";
 import Copyright from "./pages/Copyright.tsx";
@@ -20,6 +22,8 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+        <Route path="/color-maze" element={<PageTransition><ColorMazePage /></PageTransition>} />
+        <Route path="/cryptospell" element={<PageTransition><CryptoSpellPage /></PageTransition>} />
         <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
         <Route path="/license" element={<PageTransition><License /></PageTransition>} />
         <Route path="/copyright" element={<PageTransition><Copyright /></PageTransition>} />

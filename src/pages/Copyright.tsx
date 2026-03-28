@@ -9,11 +9,11 @@ const Copyright = () => (
       </Link>
 
       <h1 className="font-display font-black text-3xl md:text-4xl mb-2 text-foreground">Copyright Notice</h1>
-      <p className="text-dim text-sm mb-10">Last Updated: March 13, 2026 — © 2026 OnchainersLab. All Rights Reserved.</p>
+      <p className="text-dim text-sm mb-10">Last Updated: March 27, 2026 — © 2026 OnchainersLab. All Rights Reserved.</p>
 
       <div className="space-y-8">
         {[
-          { title: "1. Ownership of Content", body: "All content included in the CryptoSpell application, such as text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, and software, is the property of OnchainersLab or its content suppliers and is protected by international copyright laws." },
+          { title: "1. Ownership of Content", body: "All content included in our applications (including <b>Color Maze</b>, <b>CryptoSpell</b>, and others), such as text, graphics, logos, images, digital downloads, and software, is the property of OnchainersLab or its content suppliers and is protected by international copyright laws." },
           { title: "2. Intellectual Property", body: "The compilation of all content in this application is the exclusive property of OnchainersLab and protected by international copyright laws. All software used in this application is the property of OnchainersLab or its software suppliers and protected by international copyright laws." },
           { title: "3. Trademarks", body: "CryptoSpell, the CryptoSpell logo, and other marks indicated in our application are registered trademarks or trademarks of OnchainersLab. OnchainersLab's trademarks and trade dress may not be used in connection with any product or service that is not OnchainersLab's, in any manner that is likely to cause confusion among customers, or in any manner that disparages or discredits OnchainersLab." },
           { title: "4. License and Access", body: "OnchainersLab grants you a limited license to access and make personal use of this application. This license does not include any resale or commercial use of this application or its contents; any collection and use of any product listings, descriptions, or prices; any derivative use of this application or its contents; or any use of data mining, robots, or similar data gathering and extraction tools." },

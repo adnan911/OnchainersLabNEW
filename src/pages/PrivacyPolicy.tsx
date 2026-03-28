@@ -9,12 +9,16 @@ const PrivacyPolicy = () => (
       </Link>
 
       <h1 className="font-display font-black text-3xl md:text-4xl mb-2 text-foreground">Privacy Policy</h1>
-      <p className="text-dim text-sm mb-10">Effective Date: March 13, 2026</p>
+      <p className="text-dim text-sm mb-10">Effective Date: March 27, 2026</p>
 
       <div className="prose-custom space-y-8">
         <section className="space-y-3">
           <h2 className="font-display font-bold text-lg text-foreground">1. Overview</h2>
-          <p className="text-sm text-dim leading-[1.85]">CryptoSpell is a mobile puzzle game where players spell cryptocurrency-related terms and may earn or mint blockchain-based digital collectibles (NFTs). This Privacy Policy explains what information CryptoSpell processes and how it is used.</p>
+          <p className="text-sm text-dim leading-[1.85]">
+            OnchainersLab ("we," "us," or "our") manages a portfolio of blockchain-enabled maritime and puzzle experiences, including <b>Color Maze</b> and <b>CryptoSpell</b>. 
+            This Privacy Policy explains how we collect and process information through our applications.
+          </p>
+          <p className="text-sm text-dim leading-[1.85]">By using our applications, you agree to this Privacy Policy.</p>
         </section>
 
         <section className="space-y-3">

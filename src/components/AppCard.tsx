@@ -1,15 +1,14 @@
-import { ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface AppCardProps {
-  variant: "cs" | "pm";
+  variant: "cs" | "pm" | "cm";
   image: string;
   tag: string;
   name: string;
   desc: string;
   features: string[];
-  expanded?: boolean;
-  onToggle?: () => void;
-  children?: React.ReactNode;
+  path?: string;
 }
 
 const variantStyles = {
@@ -35,19 +34,30 @@ const variantStyles = {
     hoverShadow: "0 30px 60px hsl(var(--pm-blue) / 0.12), 0 0 0 1px hsl(var(--pm-blue) / 0.15)",
     dotShadow: "0 0 6px hsl(var(--pm-blue))",
   },
+  cm: {
+    tagColor: "hsl(var(--cm-yellow))",
+    tagBg: "hsl(var(--cm-yellow) / 0.1)",
+    tagBorder: "hsl(var(--cm-yellow) / 0.25)",
+    infoBg: "linear-gradient(135deg, hsl(200 100% 5%) 0%, hsl(var(--background)) 100%)",
+    imgOverlay: "linear-gradient(to top, hsl(200 100% 5%), transparent)",
+    ctaBg: "hsl(var(--cm-yellow) / 0.12)",
+    ctaBorder: "hsl(var(--cm-yellow) / 0.35)",
+    hoverShadow: "0 30px 60px hsl(var(--cm-blue) / 0.15), 0 0 0 1px hsl(var(--cm-yellow) / 0.15)",
+    dotShadow: "0 0 6px hsl(var(--cm-yellow))",
+  },
 };
 
-const AppCard = ({ variant, image, tag, name, desc, features, expanded, onToggle, children }: AppCardProps) => {
+const AppCard = ({ variant, image, tag, name, desc, features, path }: AppCardProps) => {
   const s = variantStyles[variant];
 
-  return (
-    <div className="group rounded-xl overflow-hidden relative flex flex-col text-foreground transition-all duration-[350ms] ease-[cubic-bezier(.22,1,.36,1)]"
+  const content = (
+    <div className="group rounded-xl overflow-hidden relative flex flex-col text-foreground transition-all duration-[350ms] ease-[cubic-bezier(.22,1,.36,1)] h-full cursor-pointer hover:scale-[1.01]"
       style={{ border: "1px solid hsl(var(--ghost))", background: "hsl(var(--ghost))" }}
       onMouseEnter={e => (e.currentTarget.style.boxShadow = s.hoverShadow)}
       onMouseLeave={e => (e.currentTarget.style.boxShadow = "none")}>
       {/* Image */}
       <div className="relative overflow-hidden">
-        <img src={image} alt={name} className="w-full aspect-[16/10] object-cover block" />
+        <img src={image} alt={name} className="w-full aspect-[16/10] object-cover block group-hover:scale-105 transition-transform duration-[600ms]" />
         <div className="absolute bottom-0 left-0 right-0 h-[60%] pointer-events-none" style={{ background: s.imgOverlay }} />
       </div>
       {/* Info */}
@@ -66,22 +76,25 @@ const AppCard = ({ variant, image, tag, name, desc, features, expanded, onToggle
             </span>
           ))}
         </div>
-        {onToggle && (
-          <button onClick={onToggle}
-            className="inline-flex items-center gap-[10px] mt-3 font-body text-xs font-bold tracking-[0.15em] uppercase no-underline py-3 px-7 rounded w-fit transition-all duration-200 hover:opacity-80 cursor-pointer"
+        {path && (
+          <div className="inline-flex items-center gap-[10px] mt-4 font-body text-xs font-bold tracking-[0.15em] uppercase no-underline py-3.5 px-8 rounded w-fit transition-all duration-300 group-hover:brightness-110"
             style={{ background: s.ctaBg, border: `1px solid ${s.ctaBorder}`, color: s.tagColor }}>
-            {expanded ? "Close" : "View Details"} {expanded ? <ChevronUp size={14} /> : <ArrowRight size={14} />}
-          </button>
+            VIEW DETAILS <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          </div>
         )}
       </div>
-      {/* Expandable detail section */}
-      {expanded && children && (
-        <div className="border-t border-ghost overflow-hidden animate-accordion-down" style={{ background: s.infoBg }}>
-          {children}
-        </div>
-      )}
     </div>
   );
+
+  if (path) {
+    return (
+      <Link to={path} className="block no-underline h-full transition-transform duration-300">
+        {content}
+      </Link>
+    );
+  }
+
+  return content;
 };
 
 export default AppCard;
